@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#warp{
+				position: relative;
+				top: 0;
+				transition: 1.2s;
+			}
+			body{
+				overflow: hidden;
+			}
+			.active{
+				background: white;
+			}
+			.pic li{
+				width: 392px;
+				height: 370px;
+				border: 1px solid white;
+				margin-top: 5px;
+				margin-left: 5px;
+				float: left;
+				list-style: none;
+			}
+			img{
+				width: 392px;
+				height: 370px;
+				filter: brightness(70%);
+			}
+			img:hover{
+				cursor: pointer;
+				filter: brightness(100%);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="warp">
+			<div id="box1" class="pic">
+				<ul>
+					<li><img src="file/maiditime/72f082025aafa40fbbe3faf2ab64034f78f019f3.jpg"/></li>
+					<li><img src="file/maiditime/maiditime.jpg"/></li>
+					<li><img src="file/maiditime/63d9f2d3572c11df45fab2ba672762d0f703c204.jpg"/></li>
+					<li><img src="file/maiditime/timg (11).jpg"/></li>
+					<li><img src="file/maiditime/timg (10).jpg"/></li>
+					<li><img src="file/maiditime/timg (3).jpg"/></li>
+					<li><img src="file/maiditime/timg (4).jpg"/></li>
+					<li><img src="file/maiditime/timg (9).jpg"/></li>
+				</ul>
+			</div>
+			<div id="box2" class="pic" style="background: wheat;">
+				<ul>
+					<li><img src="file/maiditime/timg (8).jpg"/></li>
+					<li><img src="file/maiditime/timg.jpg"/></li>
+					<li><img src="file/maiditime/tmac.jpeg"/></li>
+					<li><img src="img/1344949706_088001.jpg"/></li>
+					<li><img src="file/maiditime/timg (5).jpg"/></li>
+					<li><img src="img/d8f9d72a6059252de9ab3c74349b033b5bb5b905.jpg"/></li>
+					<li><img src="img/rdn_5073eebabcc55.jpg"/></li>
+					<li><img src="maditime/timg (7).jpg"/></li>
+				</ul>
+			</div>
+			<div id="box3"  class="pic">
+				<ul>
+					<li><img src="maditime/u=2916707904,1919756164&fm=27&gp=0.jpg"/></li>
+					<li><img src="file/maiditime/timg (7).jpg"/></li>
+					<li><img src="maditime/u=1014500819,613659780&fm=27&gp=0.jpg"/></li>
+					<li><img src="img/u=3829914809,645857283&fm=27&gp=0.jpg"/></li>
+					<li><img src="js/maiditime/timg (6).jpg"/></li>
+					<li><img src="maditime/timg (14).jpg"/></li>
+					<li><img src="maditime/tmac.jpeg"/></li>
+					<li><img src="img/1358145407268_8zg7m1.jpg"/></li>
+				</ul>
+			</div>
+			<div id="box4" class="pic" >
+			<ul>
+					<li><img src="maditime/timg (12).jpg"/></li>
+					<li><img src="maditime/timg (13).jpg"/></li>
+					<li><img src="maditime/timg (16).jpg"/></li>
+					<li><img src="maditime/timg (17).jpg"/></li>
+					<li><img src="maditime/timg (18).jpg"/></li>
+					<li><img src="maditime/u=1137234010,53354925&fm=27&gp=0.jpg"/></li>
+					<li><img src="img/maidi4.jpg"/></li>
+					<li><img src="img/t-mac.jpg"/></li>
+				</ul></div>
+		</div>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var warp = document.getElementById("warp");
+			var boxs = warp.getElementsByTagName("div");
+			var lis = warp.getElementsByTagName("li");
+			var windowWidth = document.documentElement.clientWidth;
+			var windowHeight = document.documentElement.clientHeight;
+			var num = 0;
+			var arr = [];
+			var flag = null;
+			var onoff = true;
+			for(var i=0;i<boxs.length;i++){
+				boxs[i].style.width = windowWidth +"px";
+				boxs[i].style.height = windowHeight+ "px";
+			}
+			for(var i=0;i<lis.length;i++){
+				lis[i].index = i
+//				arr.push(lis[i]);
+//				console.log(arr.indexOf())
+				lis[i].onclick = function(){
+					for(var j=0;j<lis.length;j++){
+						lis[j].className = "";
+					}
+					
+					lis[this.index].className = "active";
+					warp.style.top = this.index*-windowHeight+"px"
+				}
+			}
+			mouseWheel(document);
+			function mouseWheel(obj){
+				var user = navigator.userAgent.toLocaleLowerCase();
+				if(user.indexOf("firefox")== -1){
+					obj.onmousewheel = wheel;
+				}else{
+					obj.addEventListener("DOMMouseScroll",wheel);
+				}
+			}
+			function wheel(event){
+				var ev = event||window.event;
+				if(ev.wheelDelta){
+					if(ev.wheelDelta>0){
+						flag =true;
+					}else{
+						flag = false;
+					}
+				}else if(ev.detail){
+					if(ev.detail<0){
+						flag = true;
+					}else{
+						flag = false;
+					}
+				}
+//				
+//				if(ev.detail<0){
+//					flag = true;
+//				}else{
+//					flag = false;
+//				}
+				if(flag){
+					up();
+				}else{
+					down();
+				}
+			}
+			function up(){
+				console.log(1)
+				if(onoff){
+					num--;
+				if(num<0){
+					num = boxs.length-1;
+				}
+				warp.style.top = num*-windowHeight+"px";
+				for(var j=0;j<lis.length;j++){
+						lis[j].className = "";
+					}
+					lis[num].className='active'
+					onoff = false;
+					setTimeout(function(){
+						onoff = !onoff;
+					},1200)
+				}
+			}
+				
+			function down(){
+				if(onoff){
+						num++;
+					if(num>boxs.length-1){
+						num = 0;
+					}else{
+						num =num
+					}
+					warp.style.top = -num*windowHeight+"px";
+					for(var j=0;j<lis.length;j++){
+							lis[j].className = "";
+						}
+					lis[num].className='active';
+					onoff = false;
+						setTimeout(function(){
+							onoff = !onoff;
+						},1200)
+					}
+				
+			}
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				border-radius: 50%;
+				border-bottom: 1px solid red;
+				border-left: 1px solid green;
+				border-top: 1px solid transparent;
+				border-right: 1px solid transparent;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 100px;height: 100px;"></div>
+		<script type="text/javascript">
+//			var str = "aabbcc";
+//			var strArr = str.split("");
+//			var obj = {};
+//			for(var i=0;i<strArr.length;i++){
+//				if(obj[strArr[i]]){
+//					obj[strArr[i]]++
+//				}else{
+//					obj[strArr[i]]=1
+//				}
+//			}
+//			console.log(obj)
+//			charAt()在给定字符串中查找指定下标的字符串;
+//			index()在给定字符串中查找指定字符的下标;招不到返回-1;
+//			arr1.concat(arr2);字符串拼接;
+//			replace(old,new)
+//			toString():null和undefined 不能识别;
+//			split()切数组;
+//			search;在给定字符串中查找指定字符串第一次出现的下标;
+//			indexof在给定字符串中查找指定字符串第一次出现的下标;
+//			indexof:可以从第二个下标开始查找,search只能从第一个下标开始找;
+//			substing在给定下标中从指定下标开始保存直到最后;
+//			splie在给定下标中从指定下标开始保存到最后
+//			if(!Array.prototype.indexOf){
+//				Array.prototype.indexOf = function(n){
+//					for(var i=0;i<btns.length;i++){
+//						if(btns[i]==n)
+//					}return i
+//				}
+//			}
+			var boxs = document.getElementById("box");
+			var btns = document.getElementById("button");
+//			for(var i=0;i<btns.langth;i++){
+//				btns[i].index = i;
+//				btns[i].onclick = function(){
+//					for(var k=0;k<btns.length;k++){
+//						btns[k].className ="";
+//						boxs[k].className = "";
+//					}
+//					btns[this.index].className = "active"
+//					boxs[this.index].className = "show"
+//				}
+//			}
+//			for(var i=0;i<btns.length;i++){
+//				(function(a){
+//					btns[i].onclick = function(){
+//						for(var k=0k<btns.length;k++){
+//							btns[i].className = ""
+//							boxs[i].className = ""
+//						}
+//						btns[a].className = "active";
+//						boxs[a].className = "show"
+//					}
+//				})(i);
+//			}
+function fn(id){
+		var boxs = document.getElementById("box");
+		var btns = document.getElementById("button");
+		for(var i=0;i<btns.length;i++){
+			btns.onclick = function(){
+				for(var k=0;k<btns.length;k++){
+					btns[k].className = ""
+					boxs[k].className = ""
+				}
+				btns[i].className = "active";
+				boxs[i].className = "show"
+			}
+		}
+}
+fn(box);
+
+		</script>
+		
+	</body>
+</html>

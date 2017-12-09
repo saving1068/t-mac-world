@@ -1,0 +1,130 @@
+@charset "utf-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+#warp{
+	/*width: 100%;*/
+	/*height: 780px;*/
+	background: url(../img/19300534222493134840640180904.jpg) repeat;
+	position: relative;
+	/*border: 1px solid red;*/
+}
+#Loginframe{
+	width: 500px;
+	height: 500px;
+	padding: 50px;
+	float: left;
+	position: absolute;
+}
+#Loginframe input{
+	width: 400px;
+	height: 50px;
+	/*float: left;*/
+	margin-top:50px;
+	outline: none;
+	border-radius: 10px;
+	background: #282828;
+	font-size: 20px;
+	text-indent: 10px;
+	border: 1px solid #9a9a9a;
+	color: white;
+}
+
+#code{
+	width: 300px !important;
+}
+button{
+	cursor: pointer;
+	margin: 30px 10px;
+	width: 150px;
+	height: 50px;
+	outline: none;
+	border-radius: 10px;
+	background: #9;
+}
+#forget:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+span{
+	float: left;
+	display: inline-block;
+	font: "楷体";
+	color: white;
+	position: absolute;
+	font-size: 30px;
+	top: 25px;
+	left: 200px;
+}
+#registrationPage{
+	width:500px;
+	height: 350px;
+	float: right;
+	position: relative;
+	right: 50px;
+	top: 10px;
+	display: none;
+	}
+#registrationPage input{
+	width: 400px;
+	height: 50px;
+	outline: none;
+	background: transparent;
+	border: 1px solid #9A9A9A;
+	text-indent: 10px;
+	color: white;
+	font-size:20px ;
+	border-radius: 10px;
+}
+#registrationPage p{
+	height: 40px;
+	color: gold;
+}
+.reginput{
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	right: 0;
+}
+#regbtn{
+	margin-top:-10px ;
+}
+#forgetPass{
+	width:400px;
+	height: 200px;
+	float: right;	
+	position: absolute;
+	display:none ;
+	right: 40px;
+	top:300px;
+}
+#forgetPass input{
+	width: 400px;
+	height: 50px;
+	margin-top:20px;
+	outline: none;
+	background: transparent;
+	text-indent: 10px;
+	border: 1px solid #9A9A9A;
+	color: white;
+	font-size:20px ;
+	border-radius: 10px;
+}
+.regul{
+	width: 85px;
+	height: 250px;
+	position: absolute;
+	top: -50px;
+	left: 10px;
+}
+.regul li{
+	list-style: none;
+	font-size:25px ;
+	color: white;
+	margin-top:60px ;
+	text-align: center;
+}
+#warp .bor{
+	border: 1px solid gold;
+}
